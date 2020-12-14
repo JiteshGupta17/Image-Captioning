@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Image Captioning </title>
+</head>
+<body>
+
+	<h1> Image Captioning </h1>
+
+	<!-- Sending data on same route so we need to handle both get and post -->
+	<form method="POST" action="/" enctype="multipart/form-data">
+		<input type="file" name="userfile" placeholder="Enter your Image">
+		<input type="submit" >
+	</form>
+
+	{% if your_result %} <!-- as initially your_caption is empty -->
+		
+		<img src = "{{your_result['image']}}">
+		<br> <!-- break-->
+		<h1> Generated Caption : <i> {{your_result['caption']}}</h1>
+		<br> <!-- break-->
+		<audio controls>
+             <source src="{{your_result['sound']}}" type="audio/mpeg" >
+        </audio>
+	
+	{% endif %}
+
+</body>
+</html>>
